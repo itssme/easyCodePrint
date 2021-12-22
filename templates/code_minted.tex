@@ -1,0 +1,40 @@
+\documentclass[a4paper]{article}
+
+\usepackage[outputdir=tmp]{minted}
+\usepackage{caption}
+\usepackage{fancyhdr}
+
+\usepackage{geometry}
+\newgeometry{vmargin={17mm}, hmargin={12mm,17mm}}   % set the margins
+
+\pagestyle{fancy}
+
+\fancyhead[L]{ {{ meta.docname }} }
+\fancyhead[C]{}
+\fancyhead[R]{ {{meta.author}} }
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[C]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+{% if code_input|length == 0 %}
+
+No code was submitted.
+
+{% else %}
+
+{% for code in code_input %}
+\section{ {{code.filename}} }
+
+\begin{minted}[frame=lines, framesep=2mm, baselinestretch=1.2, linenos, breaklines]{python}
+{{ code.text }}
+\end{minted}
+\captionof{listing}{ {{code.filename}} }
+{% endfor %}
+
+{% endif %}
+
+
+
+\end{document}
