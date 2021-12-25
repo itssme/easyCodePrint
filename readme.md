@@ -1,6 +1,6 @@
 # easyCodePrint
 
-Simple tool for converting a bunch of code submission in python into one PDF.
+Simple tool for converting a bunch of code submission in python into multiple PDFs (one per submission).
 
 # Usage
 
